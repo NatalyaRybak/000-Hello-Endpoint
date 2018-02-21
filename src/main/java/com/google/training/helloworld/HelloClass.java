@@ -13,6 +13,15 @@ public class HelloClass {
         this.message = "Good " + period + ", "+name+" !";
     }
     
+    public HelloClass (String name, String surname, String f) {
+        this.message = "";
+        for (int i = 0; i < Integer.parseInt(f); i++){
+            this.message += "Welcome,  " + name + " "+surname+" ! ";
+        }
+    }
+    
+
+
     public String getMessage() {
         return message;
     }

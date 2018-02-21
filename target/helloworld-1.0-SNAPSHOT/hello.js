@@ -60,6 +60,13 @@ function enableButtons () {
     // Update the button label now that the button is active
     btn.value="Click me for a personal period greeting";
 
+    // Set the onclick action for the third button
+    btn = document.getElementById("input_greet_by_surname");
+    btn.onclick=function(){greetBySurname();};
+
+    // Update the button label now that the button is active
+    btn.value="Click me for a personal name surname greeting";
+
 }
 
 /*
@@ -103,4 +110,11 @@ request.execute(sayHelloCallback);
 }
 
 
+function greetBySurname(){
+    var name = document.getElementById("name").value;
+    var surname = document.getElementById("surname").value;
+    var f = document.getElementById("f").value;
+    var request = gapi.client.helloworldendpoints.greetBySurname({'name': name, 'surname':surname, 'f':f});
+    request.execute(sayHelloCallback);
+}
 
