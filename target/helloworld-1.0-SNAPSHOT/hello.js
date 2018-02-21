@@ -52,6 +52,14 @@ function enableButtons () {
 	
 	// Update the button label now that the button is active
 	btn.value="Click me for a personal greeting";
+
+    // Set the onclick action for the third button
+    btn = document.getElementById("input_greet_by_period");
+    btn.onclick=function(){greetByPeriod();};
+
+    // Update the button label now that the button is active
+    btn.value="Click me for a personal period greeting";
+
 }
 
 /*
@@ -86,6 +94,12 @@ function greetByName () {
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
 	alert(response.message);	
+}
+function greetByPeriod(){
+var name = document.getElementById("name").value;
+var period = document.getElementById("period").value;
+var request = gapi.client.helloworldendpoints.greetByPeriod({'name': name, 'period':period});
+request.execute(sayHelloCallback);
 }
 
 
